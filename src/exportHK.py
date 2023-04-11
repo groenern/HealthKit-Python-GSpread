@@ -3,12 +3,13 @@ import sys
 import datetime
 from util.XMLParser import XMLParser 
 from util.GoogleHandler import GoogleHandler
+import configparser
+import os
 
 def checkCommandLineArg():
     if len(sys.argv) < 2:
-        #print("Please provide the file name as command line argument.")
-        #sys.exit(1)
-        return "export.xml" ## DELETE LATER
+        print("Please provide the file name as command line argument.")
+        sys.exit(1)
 
     return sys.argv[1]
 
@@ -38,14 +39,21 @@ def createWorkoutDict(workouts):
     return sortedWorkouts
 
 def main():
+    dir = os.path.dirname(__file__)
+    configFile = os.path.join(dir, 'config.ini')
+
+    config = configparser.ConfigParser()
+    config.read(configFile)
+
     workouts = populateWorkouts()
 
     # set up googlehandler and connect
-    email = 'romangroenewold@gmail.com'
-    credentials = 'credentials.json'
-    today = datetime.datetime.today().strftime('%Y-%m-%d')
-    spreadsheet = 'Apple_Watch_Spreadsheet_Data_{}'.format(today)
-    myGoogleHandler = GoogleHandler(email, credentials,spreadsheet)
+    email = config['user']['email']
+    credentials = config['user']['credentials']
+    spreadsheetName = config['spreadsheet']['title']
+
+    today = datetime.datetime.today().strftime('%Y_%m_%d')
+    myGoogleHandler = GoogleHandler(email, credentials,spreadsheetName + "_" + today)
 
     # create and populates workouts
     numRows = len(workouts)
