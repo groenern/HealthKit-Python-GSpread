@@ -8,7 +8,7 @@
 - JSON Google Credentials
 
 ### Google Service Account
-Follow the gspread documentation [here](https://docs.gspread.org/en/latest/oauth2.html). You will need to create a project, enable API access, create a service account, and finally download the account's credentials.
+Follow the gspread documentation [here](https://docs.gspread.org/en/latest/oauth2.html). You will need to create a project, enable API access, create a service account, and finally download the account's credentials. If you need help downloading the service key, read [here](https://cloud.google.com/iam/docs/keys-create-delete).
 
 ### Installation
 1. Clone the repository: `git clone https://github.com/groenern/HealthKit-Python-GSpread.git`
@@ -20,3 +20,6 @@ Follow the gspread documentation [here](https://docs.gspread.org/en/latest/oauth
  3. Edit the config.ini to fit your information
  4. Place the export.xml and credentials.json file in the same directory as exportHK.py (or use absolute paths)
  5. Run the Python script `python hkExport.py export.xml"
+
+## Sample Output
+![SampleOutput](https://user-images.githubusercontent.com/130081417/231248573-fe391dd4-5c11-4c7c-b109-2a847e89b1e9.png)
