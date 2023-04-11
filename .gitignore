@@ -2,3 +2,4 @@
 src/export.xml
 *.txt
 *.json
+*.pyc

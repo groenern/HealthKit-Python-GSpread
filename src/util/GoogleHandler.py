@@ -30,7 +30,6 @@ class GoogleHandler:
         return worksheet
     
     def createWorksheet(self, worksheetName, worksheetRows, worksheetCols):
-        print(worksheetName, worksheetRows,worksheetCols)
         # Check "sheet1" exists and if it does rename it
         worksheet = None
         try:

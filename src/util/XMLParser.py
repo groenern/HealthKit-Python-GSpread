@@ -18,15 +18,6 @@ class XMLParser:
             # Generic List of All Workouts
             self.workouts.append(Workout(workout))
 
-            # Seperate Walks and Runs ->> Can Add More Support Here (Cyclcing, FST, etc)
-            workoutType = workout.get('workoutActivityType')
-            if workoutType == 'HKWorkoutActivityTypeRunning':
-                self.runs.append(Workout(workout))
-            elif workoutType == 'HKWorkoutActivityTypeWalking':
-                self.walks.append(Workout(workout))
-
     def getWorkouts(self):
         return self.workouts
     
-    def getRunsWalks(self):
-        return self.runs, self.walks
