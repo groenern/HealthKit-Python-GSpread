@@ -3,3 +3,4 @@ src/export.xml
 *.json
 *.pyc
 src/guide to download service key.txt
+src/config.ini
